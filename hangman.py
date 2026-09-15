@@ -1,3 +1,6 @@
+from english_words import english_words_lower_set
+import random
+
 def print_status(current, penalty):
     print(current + " / " + str(penalty) + " penalty\n")
 
@@ -31,6 +34,7 @@ def check_letter(letter, word, current):
 def check_game_over(current, word, penalty):
     if penalty > 12:
         print("penalty limit attained, game over")
+        print("the word was " + word)
         return (True)
     if current == word:
         print(current + ": correct guess - " + str(penalty) + " penalties")
@@ -38,8 +42,7 @@ def check_game_over(current, word, penalty):
     return (False)
 
 def main():
-    word = "superman"
-    word = word.lower()
+    word = random.choice(list(english_words_lower_set))
     current = ""
     penalty = 0
 
